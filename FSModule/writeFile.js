@@ -1,5 +1,5 @@
 const fs = require('fs');
-fs.writeFile('index.txt','hello world again again',function(err){
+fs.writeFile('index.txt','hello codeeers',function(err){
     if(err){
         console.log('Getting error: ',err);
     }
