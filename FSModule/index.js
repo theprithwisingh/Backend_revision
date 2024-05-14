@@ -1,9 +1,9 @@
 
 const fs  = require('fs');
-// console.log("READ START");
+console.log("READ START");
 
 //Asynchronous ways to read file
-/*
+
 fs.readFile('input.txt', function(err,data){
     if(err){
      console.log('Errorssss:', err);
@@ -14,7 +14,6 @@ fs.readFile('input.txt', function(err,data){
     return data;
 })
 console.log("OTHER STUFF");
-*/
 
 
 //Synchronous ways to read file

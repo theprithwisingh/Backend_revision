@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File System CRUD</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="container">
+        <h1>File System CRUD</h1>
+        <label for="fileName">File Name:</label>
+        <input type="text" id="fileName" name="fileName">
+        <br>
+        <label for="content">Content:</label>
+        <textarea id="content" name="content" rows="4"></textarea>
+        <br>
+        <button onclick="createFile()">Create</button>
+        <button onclick="readFile()">Read</button>
+        <button onclick="updateFile()">Update</button>
+        <button onclick="deleteFile()">Delete</button>
+        <p id="message"></p>
+    </div>
+<script src="crud.js"></script>
+<script src="crud.js"></script>
+</body>
+</html>

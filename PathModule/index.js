@@ -1,11 +1,12 @@
 const path  =require("path");
-//console.log(path.sep);// w\
+console.log(path.sep);// w\
 
-//console.log(process.env.PATH);
+console.log(process.env.PATH);
 
-//console.log(path.delimiter);// ;
+console.log(path.delimiter);// ;
 
-// const filePath1 = '.\public_html\home\index.html'
+const filePath1 = '.\public_html\home\index.html';
+
 const currentFilePath = __filename;
 console.log(currentFilePath);
 console.log(__dirname);
