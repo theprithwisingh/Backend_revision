@@ -22,5 +22,5 @@ const server =  http.createServer((req,res)=>{
   }
   console.log('server error...')
 })
-server.listen(5005);
-console.log('the http server is running on port 5005');
+server.listen(5006);
+console.log('the http server is running on port 5006');
