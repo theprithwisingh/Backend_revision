@@ -1,4 +1,4 @@
-const http = require('http')
+/*onst http = require('http')
 console.log(http);
 
 const server = http.createServer((req,res)=>{
@@ -11,4 +11,16 @@ const server = http.createServer((req,res)=>{
     res.end();
 })
 server.listen(5003);
-console.log('the http server is running on port 5002')
+console.log('the http server is running on port 5002');
+*/ 
+const http = require('http')
+// console.log(http)
+
+const server =  http.createServer((req,res)=>{
+  if (req.url=='/') {
+    res.write('<h1>helllo world</h1>')
+  }
+  console.log('server error...')
+})
+server.listen(5005);
+console.log('the http server is running on port 5005');

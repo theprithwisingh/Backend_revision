@@ -51,10 +51,12 @@ const deleteFile = () => {
             showMessage(`File '${fileName}' deleted successfully.`);
             clearInputs();
             removeFileCard(fileName);
-        } catch (err) {
+        } 
+        catch(err) {
             showMessage('Error deleting file: ' + err.message);
         }
-    } else {
+    } 
+    else{
         showMessage(`File '${fileName}' not found.`);
     }
  };

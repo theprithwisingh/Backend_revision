@@ -9,7 +9,7 @@ const filePath1 = '.\public_html\home\index.html';
 
 const currentFilePath = __filename;
 console.log(currentFilePath);
-console.log(__dirname);
+console.log('dirname >' ,__dirname);
 
 let basename = path.basename(currentFilePath)
 console.log('basename >' ,basename);//index.js
