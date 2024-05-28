@@ -1,8 +1,8 @@
 const  http = require('http');
 
 const options={
-    hostname:'http://localhost:3022',
-    path:'/',
+    hostname:'fakestoreapi.com',
+    path:'product/1',
     method:'GET'
 }
 const apiReq = http.request(options,(apiRes)=>{

@@ -18,7 +18,7 @@ const server = http.createServer((req,res)=>{
   if(req.url=='/'){
     res.write('<h1>hello world prithwi singh</h1>');
   }
-  // res.end();
+  res.end();
 })
 server.listen(5006);
 console.log('the http server is running on port 5006');
