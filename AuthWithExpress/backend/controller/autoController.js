@@ -61,24 +61,45 @@ const signin =async(req, res)=>{
             message:'Every field is mandatory'
         })
     }
+
+
    //send req to database for valid user and passward 
     const user = await userModel
           .findOne({
             email
           })
           .select('+password');
-
+ //if validation is wrong 
     if (!user|| user.password!==password) {
         return res.status(400).json({
             success:false,
             message:'invalid credentials'
         })
     }
+    }
     
+    try {
+        const token= user.jwtToken();
+        user.password = undefined;
     
-}
-
-module.exports = {
+        //security purpose
+        const cookieOption = {
+            maxAge:24*60*60*1000,
+            httpOnly:true
+        };
+    
+        res.cookie("token", token, cookieOption);
+        res.status(200).json({
+            success:true,
+            data:user
+        })
+    } catch (e) {
+        res.status(200).json({
+            success:false,
+            massage:e.massage
+        })
+    }
+    module.exports = {
     signup,
     signin
-}
+    }
