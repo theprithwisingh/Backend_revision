@@ -1,5 +1,6 @@
 const userModel = require("../model/userSchema");
 const emailValidator = require("email-validator")
+const bcrypt = require('bcrypt');
 
 const signup = async (req, res, next)=>{
     const {name,email, password,confirmPassword} = req.body;
@@ -70,7 +71,7 @@ const signin =async(req, res)=>{
           })
           .select('+password');
  //if validation is wrong 
-    if (!user|| user.password!==password) {
+    if (!user|| (await bcrypt.compare(password, user.password))) {
         return res.status(400).json({
             success:false,
             message:'invalid credentials'
@@ -94,12 +95,50 @@ const signin =async(req, res)=>{
             data:user
         })
     } catch (e) {
-        res.status(200).json({
+        res.status(400).json({
             success:false,
-            massage:e.massage
+            massage:e.message
         })
+    }
+
+    const getUser =async (req,res)=>{
+     const userId  =req.user.id;
+     try {
+        const user = await userModel.findById(userId);
+        return res.status(200).json({
+            success:true,
+            data:user
+        });
+    } 
+    catch (error) { 
+        res.status(400).json({
+            success:false,
+            massage:e.message
+        })
+    }
+    }
+
+    const logout=(req,res)=>{
+        try {
+            const cookieOption={
+                expires: new Date,
+                httpOnly:true
+            };
+            res.cookie("token",null,cookieOption);
+            res.status(200).json({
+                success:false,
+                massage:"Loggged Out"
+            })
+        } catch (e){
+            res.status(400).json({
+                success:false,
+                massage:e.message
+            })
+        }
     }
     module.exports = {
     signup,
-    signin
+    signin,
+    getUser,
+    logout
     }
